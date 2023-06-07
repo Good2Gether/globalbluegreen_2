@@ -62,8 +62,9 @@
       on_trial_finish: function () {if(successExp) {
         closeFullscreen();
         document.body.style.cursor = 'auto';
+        var randomCode = jsPsych.randomization.randomID(7);
         jsPsych.endExperiment(`<div>
-        Your survey code is: <b> C8GNYXQW </br>
+        Your survey code is: <b> <b>${randomCode}GLO07283</b></br>
         You can close the browser to end the experiment now. </br>
                     The webcam will turn off when you close the browser. </br>
                      
@@ -119,7 +120,7 @@
     var start_exp_survey_trial = {
       type: jsPsychSurveyText,
       questions: [
-        {prompt: "What's your prolific ID?", rows: 2, columns:50 , required:true}, 
+        {prompt: "What country are you from?", rows: 2, columns:50 , required:true}, 
         {prompt: "What's your age?", rows: 1, columns: 50, required:true},
         {prompt: "What's your gender? (Female/Male/Other)", rows: 1, columns: 50,require: true},
       ],
@@ -189,7 +190,7 @@
       will be implemented OR if the choice of another participant will be implemented for you. 
       <br> 
       <br>
-      <b> 100 points are worth 0.30£ (about 30 Rupee).  </b>
+      <b> 100 points are worth 0.37$ (about 30 Rupee).  </b>
 
       </p>
       <br>
@@ -416,7 +417,7 @@
          <p>When you press the <strong>correct key</strong>, you win 10 points for your team, ${globalgroup_text}.</p>
          <p>But when you press the <strong>wrong key</strong>, your team looses 10 points.</p>
          <p>Bonus: If you're faster than a random person from the other team, you team wins 100 extra points.</p>
-         <p>${globalgroup_text} wins if you gather more points than ${globalothergroup_text}. The winning team gets a bonus payment of 0.60£ (about 0.60 Rupee). </br> </br></p> 
+         <p>${globalgroup_text} wins if you gather more points than ${globalothergroup_text}. The winning team gets a bonus payment of 0.75$ (about 0.60 Rupee). </br> </br></p> 
          <p>Place your fingers on the keys to get ready. </p>
          <div style="display: flex; justify-content: space-between; align-items: center; flex-direction: row;">
          <div style="display: flex; flex-direction: column; align-items: center;">
@@ -1021,7 +1022,7 @@
       type: jsPsychHtmlButtonResponse,
       stimulus: function() {
         return `
-         <p>In this task, you have 100 points that are worth 0.30£ (about 30 Rupee).</p> 
+         <p>In this task, you have 100 points that are worth 0.37$ (about 30 Rupee).</p> 
          <p>You can keep these points to yourself, or you can give some or all of the points to another participant in this study. </p>
          <p>This other participant is either a member of your team, ${globalgroup_text}, or a member of the other team, ${globalothergroup_text}.</p>
          <p><strong>Would you like to know which team the other participant belongs to?</strong></p>`;
@@ -1364,37 +1365,37 @@
         timeline.push(EnterRealChoice);
         timeline.push(real_choice);
         timeline.push(donecursor);
-
+//
         timeline.push(lookcheck_trial);
         timeline.push(selected_lookcheck);
-
+//
         timeline.push(expectations_favoritism);
-        timeline.push(expectations_others);
+         timeline.push(expectations_others);
 
-        timeline.push(teamcheck_trial);
-        timeline.push(ios_trial);
+         timeline.push(teamcheck_trial);
+         timeline.push(ios_trial);
 
-        timeline.push(rateintro);
-        // randomly decide which rating block to present first
-       if (Math.random() < 0.5) {
-         for (var i = 0; i < ident_G_trials.length; i++) {
-           timeline.push(ident_G_trials[i]);
-         }
-         for (var i = 0; i < ident_B_trials.length; i++) {
-           timeline.push(ident_B_trials[i]);
-         }
-       } else {
-         for (var i = 0; i < ident_B_trials.length; i++) {
-           timeline.push(ident_B_trials[i]);
-         }
-         for (var i = 0; i < ident_G_trials.length; i++) {
-           timeline.push(ident_G_trials[i]);
-         }
-       }
-       timeline.push(indicol);
-       timeline.push(visioncheck_trial);
-       timeline.push(eslcheck_trial);
-       timeline.push(country_survey_trial);
+         timeline.push(rateintro);
+         // randomly decide which rating block to present first
+        if (Math.random() < 0.5) {
+          for (var i = 0; i < ident_G_trials.length; i++) {
+            timeline.push(ident_G_trials[i]);
+          }
+          for (var i = 0; i < ident_B_trials.length; i++) {
+            timeline.push(ident_B_trials[i]);
+          }
+        } else {
+          for (var i = 0; i < ident_B_trials.length; i++) {
+            timeline.push(ident_B_trials[i]);
+          }
+          for (var i = 0; i < ident_G_trials.length; i++) {
+            timeline.push(ident_G_trials[i]);
+          }
+        }
+        timeline.push(indicol);
+        timeline.push(visioncheck_trial);
+        timeline.push(eslcheck_trial);
+        timeline.push(country_survey_trial);
         timeline.push(feedback);
         timeline.push(success_guard);
         

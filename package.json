@@ -19,7 +19,7 @@
   "homepage": "https://github.com/Good2Gether/keeplooking#readme",
   "dependencies": {
     "aws-sdk": "^2.1363.0",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "dropbox": "^10.34.0",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
