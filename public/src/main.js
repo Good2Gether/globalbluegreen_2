@@ -64,7 +64,7 @@
         document.body.style.cursor = 'auto';
         var randomCode = jsPsych.randomization.randomID(7);
         jsPsych.endExperiment(`<div>
-        Your survey code is: <b> <b>Cog${randomCode}Glo27</b></br>
+        Your survey code is: <b>Cog${randomCode}Glo27<b></b></br>
         You can close the browser to end the experiment now. </br>
                     The webcam will turn off when you close the browser. </br>
                      
@@ -72,7 +72,6 @@
         </div>`);
         }
     }
-
     });
 
     var subject_id = jsPsych.randomization.randomID(7);
@@ -120,7 +119,7 @@
     var start_exp_survey_trial = {
       type: jsPsychSurveyText,
       questions: [
-        {prompt: "What country are you from?", rows: 2, columns:50 , required:true}, 
+        {prompt: "What's your MTURK Worker ID (needed for bonus payment)?", rows: 2, columns:50 , required:true}, 
         {prompt: "What's your age?", rows: 1, columns: 50, required:true},
         {prompt: "What's your gender? (Female/Male/Other)", rows: 1, columns: 50,require: true},
       ],
